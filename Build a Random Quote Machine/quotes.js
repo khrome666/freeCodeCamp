@@ -11,7 +11,7 @@ class Quote extends React.Component
 
     render()
     {
-        return /*#__PURE__*/ React.createElement(
+        return React.createElement(
             "h1",
             {
                 id: "text"
@@ -30,7 +30,7 @@ class Author extends React.Component
 
     render()
     {
-        return /*#__PURE__*/ React.createElement(
+        return React.createElement(
             "p",
             {
                 id: "author"
@@ -49,10 +49,10 @@ class NewQuote extends React.Component
 
     render()
     {
-        return /*#__PURE__*/ React.createElement(
+        return React.createElement(
             "p",
             null,
-        /*#__PURE__*/ React.createElement(
+            React.createElement(
                 "a",
                 {
                     id: "new-quote",
@@ -73,15 +73,15 @@ class TweetQuote extends React.Component
 
     render()
     {
-        return /*#__PURE__*/ React.createElement(
+        return React.createElement(
             "p",
-            {
-                id: "new-quote"
-            },
-        /*#__PURE__*/ React.createElement(
+            null,
+            React.createElement(
                 "a",
                 {
-                    href: "#"
+                    id: "tweet-quote",
+                    href: "https://twitter.com/intent/tweet",
+                    target: "_blank"
                 },
                 "Tweet Quote"
             )
@@ -91,30 +91,50 @@ class TweetQuote extends React.Component
 
 class QuoteBox extends React.Component
 {
+    quotes =[
+        {
+            text: "The purpose of our lives is to be happy.",
+            author: "Dalai Lama"
+        },
+        {
+            text: "Life is what happens when you're busy making other plans.",
+            author: "John Lennon"
+        },
+        {
+            text: "Get busy living or get busy dying.",
+            author:  "Stephen King"
+        },
+        {
+            text: "You only live once, but if you do it right, once is enough.",
+            author: "Mae West"
+        }
+    ];
+
     constructor(props)
     {
         super(props);
+        let randomQuote = Math.floor(Math.random() * 4);
         this.state = {
-            text: "This is a VERY made-up quote from...",
-            author: "... The Author"
+            text: quotes[randomQuote].text,
+            author: quotes[randomQuote].author
         };
     }
 
     render()
     {
-        return /*#__PURE__*/ React.createElement(
+        return React.createElement(
             "div",
             {
                 id: "quote-box"
             },
-        /*#__PURE__*/ React.createElement(Quote, {
+        React.createElement(Quote, {
                 text: this.state.text
             }),
-        /*#__PURE__*/ React.createElement(Author, {
+        React.createElement(Author, {
                 author: this.state.author
             }),
-        /*#__PURE__*/ React.createElement(NewQuote, null),
-        /*#__PURE__*/ React.createElement(TweetQuote, null)
+        React.createElement(NewQuote, null),
+        React.createElement(TweetQuote, null)
         );
     }
 }
