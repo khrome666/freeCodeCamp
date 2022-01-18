@@ -119,6 +119,7 @@ class QuoteBox extends React.Component
     render()
     {
         let randomQuote = Math.floor(Math.random() * 4);
+        console.log(randomQuote);
 
         return React.createElement(
             "div",
