@@ -11,79 +11,50 @@ class Quote extends React.Component
 
     render()
     {
-        return React.createElement(
-            "h1",
+        return e(
+            "div",
             {
-                id: "text"
+                id: "quote"
             },
-            this.props.text
-        );
-    }
-}
-
-class Author extends React.Component
-{
-    constructor(props)
-    {
-        super(props);
-    }
-
-    render()
-    {
-        return React.createElement(
-            "p",
-            {
-                id: "author"
-            },
-            this.props.author
-        );
-    }
-}
-
-class NewQuote extends React.Component
-{
-    constructor(props)
-    {
-        super(props);
-    }
-
-    render()
-    {
-        return React.createElement(
-            "p",
-            null,
-            React.createElement(
-                "a",
+            e(
+                "h1",
                 {
-                    id: "new-quote",
-                    href: "#"
+                    id: "text"
                 },
-                "New Quote"
-            )
-        );
-    }
-}
-
-class TweetQuote extends React.Component
-{
-    constructor(props)
-    {
-        super(props);
-    }
-
-    render()
-    {
-        return React.createElement(
-            "p",
-            null,
-            React.createElement(
-                "a",
+                this.props.text
+            ),
+            "       ",
+            e(
+                "p",
                 {
-                    id: "tweet-quote",
-                    href: "https://twitter.com/intent/tweet",
-                    target: "_blank"
+                    id: "author"
                 },
-                "Tweet Quote"
+                this.props.author
+            ),
+            e(
+                "p",
+                null,
+                e(
+                    "a",
+                    {
+                        href: "#",
+                        id: "new-quote",
+                        onClick: this.props.getNewQuote
+                    },
+                    "New Quote"
+                )
+            ),
+            e(
+                "p",
+                null,
+                e(
+                    "a",
+                    {
+                        href: "#",
+                        id: "tweet-quote"
+                    },
+                    "Tweet Quote"
+                )
             )
         );
     }
@@ -95,6 +66,7 @@ class QuoteBox extends React.Component
     {
         super(props);
         this.state = {
+            randomQuote: Math.floor(Math.random() * 4),
             quotes: [
                 {
                     text: "The purpose of our lives is to be happy.",
@@ -106,7 +78,7 @@ class QuoteBox extends React.Component
                 },
                 {
                     text: "Get busy living or get busy dying.",
-                    author:  "Stephen King"
+                    author: "Stephen King"
                 },
                 {
                     text: "You only live once, but if you do it right, once is enough.",
@@ -116,24 +88,27 @@ class QuoteBox extends React.Component
         };
     }
 
+    newQuote()
+    {
+        this.setState(
+            {
+                randomQuote: Math.floor(Math.random() * 4)
+            }
+        );
+    }
+
     render()
     {
-        let randomQuote = Math.floor(Math.random() * 4);
-        console.log(randomQuote);
-
-        return React.createElement(
+        return e(
             "div",
             {
                 id: "quote-box"
             },
-        React.createElement(Quote, {
-                text: this.state.quotes[randomQuote].text
-            }),
-        React.createElement(Author, {
-                author: this.state.quotes[randomQuote].author
-            }),
-        React.createElement(NewQuote, null),
-        React.createElement(TweetQuote, null)
+            e(Quote, {
+                text: this.state.quotes[this.state.randomQuote].text,
+                author: this.state.quotes[this.state.randomQuote].author,
+                getNewQuote: this.newQuote
+            })
         );
     }
 }
