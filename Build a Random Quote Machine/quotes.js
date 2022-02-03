@@ -42,11 +42,12 @@ const NewQuote = props =>
     }, "New Quote"));
 };
 
-const TweetQuote = () =>
+const TweetQuote = props =>
 {
     return React.createElement("p", null, React.createElement("a", {
         id: "tweet-quote",
-        href: "#"
+        href: "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=" + encodeURIComponent('"' + props.quote.text + '"'),
+        target: "_blank"
     }, "Tweet Quote"));
 };
 
@@ -57,11 +58,14 @@ const QuoteBox = () =>
     const [activeQuote, setQuote] = React.useState(randomQuote());
 
     return (
-        React.createElement("div", {id: "quote-box"}, 
+        React.createElement("div", {
+                id: "quote-box",
+                class: "col"
+            }, 
             React.createElement(Quote, {quote: activeQuote}), 
             React.createElement(Author, {quote: activeQuote}), 
             React.createElement(NewQuote, {callback: callbackQuote}), 
-            React.createElement(TweetQuote, null)
+            React.createElement(TweetQuote, {quote: activeQuote})
         )
     );
 };
