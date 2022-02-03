@@ -55,3 +55,4 @@ const QuoteBox = () => {
 
 const domContainer = document.querySelector('#main-box');
 ReactDOM.render(React.createElement(QuoteBox), domContainer);
+
