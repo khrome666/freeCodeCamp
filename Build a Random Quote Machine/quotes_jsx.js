@@ -38,7 +38,7 @@ const Author = (props) => {
 const NewQuote = (props) => {
     return (
         <p>
-            <a id="new-quote" href="#" onClick={props.callback()}>New Quote</a>
+            <a id="new-quote" href="#" onClick={props.callback}>New Quote</a>
         </p>
     );
 }
@@ -60,7 +60,7 @@ const QuoteBox = () => {
         <div id="quote-box">
             <Quote quote={activeQuote}/>
             <Author quote={activeQuote}/>
-            <NewQuote callback={setQuote}/>
+            <NewQuote callback={setQuote(randomQuote())}/>
             <TweetQuote />
         </div>
     );
