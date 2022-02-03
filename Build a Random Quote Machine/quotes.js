@@ -22,33 +22,39 @@ const quotes = [
 const Quote = props =>
 {
     return React.createElement("h1", {
-        id: "text"
-    }, props.quote.text);
+        id: "text",
+        className: "card-title display-3"
+    }, `"${props.quote.text}"`);
 };
 
 const Author = props =>
 {
     return React.createElement("p", {
+        className: "card-text text-muted text-end mb-3",
         id: "author"
-    }, props.quote.author);
-};
-
-const NewQuote = props =>
-{
-    return React.createElement("p", null, React.createElement("a", {
-        id: "new-quote",
-        href: "#",
-        onClick: props.callback
-    }, "New Quote"));
+    },React.createElement("em", null, "-- " + props.quote.author));
 };
 
 const TweetQuote = props =>
 {
     return React.createElement("p", null, React.createElement("a", {
         id: "tweet-quote",
+        className: "btn btn-outline-primary float-start",
+        role: "button",
         href: "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=" + encodeURIComponent('"' + props.quote.text + '"'),
         target: "_blank"
     }, "Tweet Quote"));
+};
+
+const NewQuote = props =>
+{
+    return React.createElement("p", null, React.createElement("a", {
+        id: "new-quote",
+        className: "btn btn-primary float-end",
+        role: "button",
+        href: "#",
+        onClick: props.callback
+    }, "New Quote"));
 };
 
 const QuoteBox = () =>
@@ -57,15 +63,28 @@ const QuoteBox = () =>
     const callbackQuote = () => setQuote(randomQuote());
     const [activeQuote, setQuote] = React.useState(randomQuote());
 
+    const elQuote = React.createElement(Quote, {quote: activeQuote});
+    const elAuthor = React.createElement(Author, {quote: activeQuote});
+    const elNewQuote = React.createElement(NewQuote, {callback: callbackQuote});
+    const elTweetQuote = React.createElement(TweetQuote, {quote: activeQuote});
+
     return (
         React.createElement("div", {
-                id: "quote-box",
-                class: "col"
-            }, 
-            React.createElement(Quote, {quote: activeQuote}), 
-            React.createElement(Author, {quote: activeQuote}), 
-            React.createElement(NewQuote, {callback: callbackQuote}), 
-            React.createElement(TweetQuote, {quote: activeQuote})
+                className: "col"
+            },
+            React.createElement("div", {
+                    id: "quote-box",
+                    className: "card mt-4 shadow"
+                }, 
+                React.createElement("div", {
+                    className: "card-body"
+                },
+                    elQuote, 
+                    elAuthor,
+                    elTweetQuote,
+                    elNewQuote
+                )
+            )
         )
     );
 };
