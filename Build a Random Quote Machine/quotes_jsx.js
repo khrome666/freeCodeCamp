@@ -54,13 +54,16 @@ const TweetQuote = () => {
 const QuoteBox = () => {
     const randomQuote = () => quotes[Math.floor(Math.random() * 4)];
 
+    const callbackQuote = () => {
+        setQuote(randomQuote());
+    }
     const [activeQuote, setQuote] = React.useState(randomQuote());
 
     return (
         <div id="quote-box">
             <Quote quote={activeQuote}/>
             <Author quote={activeQuote}/>
-            <NewQuote callback={setQuote(randomQuote())}/>
+            <NewQuote callback={callbackQuote}/>
             <TweetQuote />
         </div>
     );
