@@ -15,26 +15,27 @@ const quotes = [{
 }];
 
 const Quote = props => {
-  return /*#__PURE__*/React.createElement("h1", {
+  return React.createElement("h1", {
     id: "text"
   }, props.quote.text);
 };
 
 const Author = props => {
-  return /*#__PURE__*/React.createElement("p", {
+  return React.createElement("p", {
     id: "author"
   }, props.quote.author);
 };
 
-const NewQuote = () => {
-  return /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("a", {
+const NewQuote = props => {
+  return React.createElement("p", null, React.createElement("a", {
     id: "new-quote",
-    href: "#"
+    href: "#",
+    onClick: props.callback
   }, "New Quote"));
 };
 
 const TweetQuote = () => {
-  return /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("a", {
+  return React.createElement("p", null, React.createElement("a", {
     id: "tweet-quote",
     href: "#"
   }, "Tweet Quote"));
@@ -44,15 +45,16 @@ const QuoteBox = () => {
   const randomQuote = () => quotes[Math.floor(Math.random() * 4)];
 
   const [activeQuote, setQuote] = React.useState(randomQuote());
-  return /*#__PURE__*/React.createElement("div", {
+  return React.createElement("div", {
     id: "quote-box"
-  }, /*#__PURE__*/React.createElement(Quote, {
+  }, React.createElement(Quote, {
     quote: activeQuote
-  }), /*#__PURE__*/React.createElement(Author, {
+  }), React.createElement(Author, {
     quote: activeQuote
-  }), /*#__PURE__*/React.createElement(NewQuote, null), /*#__PURE__*/React.createElement(TweetQuote, null));
+  }), React.createElement(NewQuote, {
+    callback: setQuote
+  }), React.createElement(TweetQuote, null));
 };
 
 const domContainer = document.querySelector('#main-box');
 ReactDOM.render(React.createElement(QuoteBox), domContainer);
-

@@ -35,10 +35,10 @@ const Author = (props) => {
     );
 }
 
-const NewQuote = () => {
+const NewQuote = (props) => {
     return (
         <p>
-            <a id="new-quote" href="#">New Quote</a>
+            <a id="new-quote" href="#" onClick={props.callback()}>New Quote</a>
         </p>
     );
 }
@@ -59,6 +59,9 @@ const QuoteBox = () => {
     return (
         <div id="quote-box">
             <Quote quote={activeQuote}/>
+            <Author quote={activeQuote}/>
+            <NewQuote callback={setQuote}/>
+            <TweetQuote />
         </div>
     );
 }
