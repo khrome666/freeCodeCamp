@@ -1,0 +1,9 @@
+<Calculator>
+    <Display />
+    <Keyboard />
+</Calculator>
+
+<Keyboard>
+    <Key />
+    ...
+</Keyboard>
