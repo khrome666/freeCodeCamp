@@ -23,7 +23,7 @@ function Calculator(props)
         <tbody>
             <tr>
                 <td colSpan="4">
-                    <Display id="display" value={displayValue} />
+                    <Display id="display" value={props.displayValue} />
                 </td>
             </tr>
             <tr>
@@ -32,7 +32,7 @@ function Calculator(props)
                 <td><Key id="multiply" color="primary" op="*" /></td>
             </tr>
             <tr>
-                <td><Key id="seven" color="secondary" op="7" onClick={() => storeDisplayValue("7")} /></td>
+                <td><Key id="seven" color="secondary" op="7" /></td>
                 <td><Key id="eight" color="secondary" op="8" /></td>
                 <td><Key id="nine" color="secondary" op="9" /></td>
                 <td><Key id="subtract" color="primary" op="-" /></td>

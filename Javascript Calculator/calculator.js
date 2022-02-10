@@ -23,88 +23,87 @@ function Display(props)
 function Calculator(props)
 {
     const storeDisplayValue = op => setDisplayValue(op);
-
     const [displayValue, setDisplayValue] = React.useState("0");
-    return /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
+
+    return React.createElement("tbody", null, React.createElement("tr", null, React.createElement("td", {
         colSpan: "4"
-    }, /*#__PURE__*/React.createElement(Display, {
+    }, React.createElement(Display, {
         id: "display",
-        value: displayValue
-    }))), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
+        value: props.displayValue
+    }))), React.createElement("tr", null, React.createElement("td", {
         colSpan: "2"
-    }, /*#__PURE__*/React.createElement(Key, {
+    }, React.createElement(Key, {
         id: "clear",
         color: "danger",
         op: "AC"
-    })), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Key, {
+    })), React.createElement("td", null, React.createElement(Key, {
         id: "divide",
         color: "primary",
         op: "/"
-    })), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Key, {
+    })), React.createElement("td", null, React.createElement(Key, {
         id: "multiply",
         color: "primary",
         op: "*"
-    }))), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Key, {
+    }))), React.createElement("tr", null, React.createElement("td", null, React.createElement(Key, {
         id: "seven",
         color: "secondary",
-        op: "7",
-        onClick: () => storeDisplayValue("7")
-    })), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Key, {
+        op: "7"
+    })), React.createElement("td", null, React.createElement(Key, {
         id: "eight",
         color: "secondary",
         op: "8"
-    })), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Key, {
+    })), React.createElement("td", null, React.createElement(Key, {
         id: "nine",
         color: "secondary",
         op: "9"
-    })), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Key, {
+    })), React.createElement("td", null, React.createElement(Key, {
         id: "subtract",
         color: "primary",
         op: "-"
-    }))), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Key, {
+    }))), React.createElement("tr", null, React.createElement("td", null, React.createElement(Key, {
         id: "four",
         color: "secondary",
         op: "4"
-    })), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Key, {
+    })), React.createElement("td", null, React.createElement(Key, {
         id: "five",
         color: "secondary",
         op: "5"
-    })), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Key, {
+    })), React.createElement("td", null, React.createElement(Key, {
         id: "six",
         color: "secondary",
         op: "6"
-    })), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Key, {
+    })), React.createElement("td", null, React.createElement(Key, {
         id: "add",
         color: "primary",
         op: "+"
-    }))), /*#__PURE__*/React.createElement("tr", {
+    }))), React.createElement("tr", {
         className: "h-100"
-    }, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Key, {
+    }, React.createElement("td", null, React.createElement(Key, {
         id: "one",
         color: "secondary",
         op: "1"
-    })), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Key, {
+    })), React.createElement("td", null, React.createElement(Key, {
         id: "two",
         color: "secondary",
         op: "2"
-    })), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Key, {
+    })), React.createElement("td", null, React.createElement(Key, {
         id: "three",
         color: "secondary",
         op: "3"
-    })), /*#__PURE__*/React.createElement("td", {
+    })), React.createElement("td", {
         rowSpan: "2",
         className: "h-100"
-    }, /*#__PURE__*/React.createElement(Key, {
+    }, React.createElement(Key, {
         id: "equals",
         color: "success",
         op: "="
-    }))), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
+    }))), React.createElement("tr", null, React.createElement("td", {
         colSpan: "2"
-    }, /*#__PURE__*/React.createElement(Key, {
+    }, React.createElement(Key, {
         id: "zero",
         color: "secondary",
         op: "0"
-    })), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(Key, {
+    })), React.createElement("td", null, React.createElement(Key, {
         id: "decimal",
         color: "secondary",
         op: "."
