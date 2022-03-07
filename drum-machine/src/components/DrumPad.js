@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default function Display({ keyPad }) {
+export default function Display({ padKey }) {
     return (
-        <h1>keyPad {keyPad}</h1>
+        <button className='drum-pad'>{padKey}</button>
     );
 }
